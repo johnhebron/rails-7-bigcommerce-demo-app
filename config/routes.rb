@@ -7,4 +7,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  # Omniauth Routes
+  get '/auth/failure', to: 'sessions#failure'
+  get '/auth/:name/callback', to: 'sessions#new'
+
+  # BigCommerce App Routes
+  get '/load', to: 'sessions#show'
+  get '/uninstall', to: 'sessions#destroy'
+  get 'remove-user', to: 'sessions#remove'
 end
