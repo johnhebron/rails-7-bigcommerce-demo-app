@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   # BigCommerce App Routes
   get '/load', to: 'sessions#show'
   get '/uninstall', to: 'sessions#destroy'
-  get 'remove-user', to: 'sessions#remove'
+  get '/remove-user', to: 'sessions#remove'
 end
