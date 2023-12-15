@@ -5,6 +5,10 @@ ruby "3.1.3"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
 
+# Adding BigCommerce specific gems
+gem 'bigcommerce', '~> 1.0'
+gem 'omniauth-bigcommerce'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -47,6 +51,9 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+
+  # Adding our gems below:
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :development do
