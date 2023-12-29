@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: 'sessions'}
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   # Omniauth Routes
-  get '/auth/failure', to: 'sessions#failure'
+  get '/auth/:name/failure', to: 'sessions#failure'
   get '/auth/:name/callback', to: 'sessions#new'
 
   # BigCommerce App Routes

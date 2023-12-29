@@ -272,6 +272,13 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :bigcommerce, ENV['BC_CLIENT_ID'], ENV['BC_CLIENT_SECRET'], callback_path: "/auth/bigcommerce/callback",
+                  token_params: {
+                    client_id: ENV['BC_CLIENT_ID'],
+                    client_secret: ENV['BC_CLIENT_SECRET']
+                  }
+  OmniAuth.config.logger = Rails.logger if Rails.env.development?
+  OmniAuth.config.full_host = ENV['APP_URL'] || nil
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
