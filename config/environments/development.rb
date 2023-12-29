@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Adding ngrok domain regex to allow traffic through ngrok
   config.hosts << /([A-Za-z0-9_-]+)\.ngrok-free\.app/
+
+  # Added for Devise
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

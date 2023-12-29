@@ -3,11 +3,13 @@ class SessionsController < ApplicationController
     # OmniAuth magic
     auth = request.env['omniauth.auth']
 
+    pp auth
+
     # If, for some reason, auth fails and isn't redirected,
     # we will catch it here
     unless auth && auth[:extra][:raw_info][:context]
-      render render_error "[install] Invalid credentials: #
-                       {JSON.pretty_generate(auth[:extra])}"
+      return render_error "[install] Invalid credentials:
+                       #{JSON.pretty_generate(auth)}"
     end
 
     # Set up our variables we will need to generate a User and a Store

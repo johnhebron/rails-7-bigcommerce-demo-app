@@ -5,7 +5,11 @@ ruby "3.1.3"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
 
+# Add project specific gems
+gem "devise"
+
 # Adding BigCommerce specific gems
+# gem 'omniauth-rails_csrf_protection'
 gem 'bigcommerce', '~> 1.0'
 gem 'omniauth-bigcommerce'
 
